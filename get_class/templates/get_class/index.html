@@ -1,13 +1,37 @@
+{% extends "get_class/base.html" %}
+
+{% block content %}
+
 {% if get_url_list %}
-    <ul>
+
     {% for course in get_url_list %}
-        <li>{{ course.url }}</li>
+
+    <div class="sidebar">
+
+        <div class="top">
+            <h2>{{ course.course_name }}</h2>
+            <h1>{{ course.url_name }}</h1>
+        </div>
+
+        <div class="contents">
+        <p>Viewing contents from:</p>
+
+        <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly">
+
         {{ prev_page | safe }}{{ next_page | safe }}
+        </div>
+    </div>
+
+
+    <iframe class="course" src="{{ course.url }}"></iframe>
+
     {% endfor %}
-    </ul>
+
 {% else %}
     <p>No courses available for that name</p>
     <form action="" method="get">
         <input type="text" name="course" placeholder="Search for another course"/>
     </form>
 {% endif %}
+
+{% endblock %}
