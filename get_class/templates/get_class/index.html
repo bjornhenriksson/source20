@@ -2,8 +2,12 @@
     <ul>
     {% for course in get_url_list %}
         <li>{{ course.url }}</li>
+        {{ prev_page | safe }}{{ next_page | safe }}
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>No courses available for that name</p>
+    <form action="" method="get">
+        <input type="text" name="course" placeholder="Search for another course"/>
+    </form>
 {% endif %}
