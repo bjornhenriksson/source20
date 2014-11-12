@@ -1,0 +1,9 @@
+{% if get_url_list %}
+    <ul>
+    {% for course in get_url_list %}
+        <li>{{ course.url_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
