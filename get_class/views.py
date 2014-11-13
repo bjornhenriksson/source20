@@ -20,9 +20,15 @@ def index(request):
         prev_page = '<a href="?course=%s&page=%s">prev</a>' % (current_course,get_previous_id)
     else:
         prev_page = 'no previous pages'
+
+    ratio = GetUrl.objects.filter(current_course=get_course_id, id=page)
     context = {
         'get_url_list': get_url_list,
         'prev_page': prev_page,
         'next_page': next_page,
+        'current_ratio': ratio,
     }
     return render(request, 'get_class/index.html', context)
+
+
+
