@@ -7,11 +7,14 @@ html, body {
 body {
     background: #eee;
     font-family: "proxima-nova";
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .sidebar {
     background: #27292a;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 15%;
@@ -44,7 +47,7 @@ body {
 .sidebar h2 {
 	text-transform: uppercase;
 	font-size: 0.8em;
-	color: #b6216b;
+	color: rgba(0,0,0,0.5);
 	margin-top: 0;
 	font-weight: 300;
 }
