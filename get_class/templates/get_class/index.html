@@ -9,23 +9,35 @@
     <div class="sidebar">
 
         <div class="top">
-            <h2>{{ course.course_name }}</h2>
+            <h2>{{ course.current_course }}</h2>
             <h1>{{ course.url_name }}</h1>
         </div>
 
         <div class="contents">
-        <p>Viewing contents from:</p>
 
-        <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly">
+        <p class="description">You are viewing part {{ course.id }} out of 20 in <span class="capitalize">{{ course.current_course }}</span></p>
+        <div class="pagination-nav">
         {{ prev_page | safe }}{{ next_page | safe }}
+        </div>
+
+        <div class="sidebar-footer">
+            <p>Copy this URL:</p>
+            <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly">
+        </div>
+        <!--
         {% for geturl in current_ratio %}
         <p>Current ratio: {{ geturl.votes}}</p><br />
         {% endfor %}
+        -->
 
+        <div class="rate">
+        <p><span>Did you find this link useful?</span></p>
         {% for geturl in current_ratio %}
-        <a href="{% url 'get_class:vote_down'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}">Vote Down</a>
-        <a href="{% url 'get_class:vote_up'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}">Vote Up</a>
+            <a href="{% url 'get_class:vote_down'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}" class="addvote red"><i class="fa fa-thumbs-down"></i></a>
+            <a href="{% url 'get_class:vote_up'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}" class="addvote green"><i class="fa fa-thumbs-up"></i></a>
         {% endfor %}
+        </div>
+
         </div>
 
     </div>

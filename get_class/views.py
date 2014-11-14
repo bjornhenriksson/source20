@@ -15,13 +15,13 @@ def index(request):
     get_previous_id = int(page) - 1
     get_next_id = int(page) + 1
     if GetUrl.objects.filter(id=get_next_id).exists():
-        next_page = '<a href="?course=%s&page=%s">next</a>' % (current_course,get_next_id)
+        next_page = '<a class="pagination active"><i class="fa fa-arrow-right"></i></a>'
     else:
-        next_page = 'no more pages'
+        next_page = '<a class="pagination grey"><i class="fa fa-arrow-right"></i></a>'
     if GetUrl.objects.filter(id=get_previous_id).exists():
-        prev_page = '<a href="?course=%s&page=%s">prev</a>' % (current_course,get_previous_id)
+        prev_page = '<a class="pagination active"><i class="fa fa-arrow-left"></i></a>'
     else:
-        prev_page = 'no previous pages'
+        prev_page = '<a class="pagination grey"><i class="fa fa-arrow-left"></i></a>'
 
     ratio = GetUrl.objects.filter(current_course=get_course_id, id=page)
 

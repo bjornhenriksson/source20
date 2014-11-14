@@ -54,7 +54,65 @@ body {
 
 .sidebar p {
     font-size: 0.9em;
+    color: #9fa3a4;
+}
+
+.sidebar span {
+    font-weight: 700;
+}
+
+.sidebar-footer {
+    width: 90%;
+    padding: 5%;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    border-top: 1px solid #171919;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.pagination-nav {
+    width: 100%;
+    float: right;
+    text-align: right;
+}
+
+.pagination {
+    background: #ff1b8c;
+    color: white;
+    padding: 0.6em 1em 0.6em 1em;
+    border-radius: 5px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.pagination.grey {
+    background: #45494b;
     color: #777a7b;
+}
+
+.pagination.active:hover {
+    opacity: 0.8;
+}
+
+.addvote {
+    background: #ff1b8c;
+    color: white;
+    padding: 0.6em 1em 0.6em 1em;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.addvote.green {
+    background: #a0e631;
+}
+
+.addvote.red {
+    background: #e6314f;
 }
 
 .copy-box {
