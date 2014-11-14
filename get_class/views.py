@@ -44,5 +44,17 @@ def vote_up(request):
      next_page = int(page) + 1
      return HttpResponseRedirect('/get_class/?course=%s&page=%s' % (current_course, next_page))
 
+def vote_down(request):
+     page = request.GET.get('page')
+     current_course = request.GET.get('course')
+     get_course_id = Course.objects.filter(course_name=current_course)
+     find_url = GetUrl.objects.get(current_course=get_course_id, id=page)
+     find_url.votes -= 1
+     find_url.save()
+     next_page = int(page) + 1
+     return HttpResponseRedirect('/get_class/?course=%s&page=%s' % (current_course, next_page))
+
+
+
 
 

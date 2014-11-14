@@ -23,6 +23,7 @@
         {% endfor %}
 
         {% for geturl in current_ratio %}
+        <a href="{% url 'get_class:vote_down'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}">Vote Down</a>
         <a href="{% url 'get_class:vote_up'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}">Vote Up</a>
         {% endfor %}
         </div>
