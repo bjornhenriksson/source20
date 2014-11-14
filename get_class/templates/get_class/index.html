@@ -19,10 +19,13 @@
         <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly">
         {{ prev_page | safe }}{{ next_page | safe }}
         {% for geturl in current_ratio %}
-        <p>Current ratio: {{ geturl.votes}}<br /> everything above 0 is positive.</p>
+        <p>Current ratio: {{ geturl.votes}}</p><br />
+        {% endfor %}
+
+        {% for geturl in current_ratio %}
+        <a href="{% url 'get_class:vote_up'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}">Vote Up</a>
         {% endfor %}
         </div>
-
 
     </div>
 
