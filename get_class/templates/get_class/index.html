@@ -9,6 +9,7 @@
     <div class="sidebar">
 
         <div class="top">
+            <span style="text-transform: capitalize;">{{ current_user }}</span>
             <h2>{{ course.current_course }}</h2>
             <h1>{{ course.url_name }}</h1>
         </div>
@@ -22,7 +23,7 @@
 
         <div class="sidebar-footer">
             <p>Copy this URL:</p>
-            <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly">
+            <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly"><br /><br />
         </div>
         <!--
         {% for geturl in current_ratio %}

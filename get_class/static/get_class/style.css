@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-    background: #eee;
+    background: black;
     font-family: "proxima-nova";
     position: absolute;
     top: 0;
@@ -28,6 +28,12 @@ body {
     display: inline-block;
     width: 90%;
     padding: 15% 5% 5% 5%;
+}
+
+.sidebar .top p {
+	font-size: 0.8em;
+	color: rgba(0,0,0,0.5);
+	font-weight: 300;
 }
 
 .sidebar .contents {
@@ -65,9 +71,17 @@ body {
     width: 90%;
     padding: 5%;
     position: absolute;
-    bottom: 5%;
+    bottom: 2%;
     left: 0;
     border-top: 1px solid #171919;
+}
+
+.sidebar-footer p {
+    font-size: 0.8em;
+}
+
+.sidebar-footer a {
+    color: white;
 }
 
 .capitalize {
@@ -96,6 +110,10 @@ body {
 
 .pagination.active:hover {
     opacity: 0.8;
+}
+
+.pagination.next {
+    cursor: pointer;
 }
 
 .addvote {
@@ -132,4 +150,10 @@ body {
     right: 0;
     top: 0;
     border: 0;
+    transition: all 0.5s ease-in;
+    -webkit-transition: all 0.5s ease-in;
+}
+
+.course.toned {
+    opacity: 0.6;
 }

@@ -3,9 +3,13 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.urlresolvers import reverse
 from get_class.models import GetUrl,Course
+from django.contrib.auth import logout
 
 
 def index(request):
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/')
+
     page = request.GET.get('page')
     if not page:
         page = 1
@@ -15,11 +19,11 @@ def index(request):
     get_previous_id = int(page) - 1
     get_next_id = int(page) + 1
     if GetUrl.objects.filter(id=get_next_id).exists():
-        next_page = '<a class="pagination active"><i class="fa fa-arrow-right"></i></a>'
+        next_page = '<a class="pagination next active"><i class="fa fa-arrow-right"></i></a>'
     else:
-        next_page = '<a class="pagination grey"><i class="fa fa-arrow-right"></i></a>'
+        next_page = '<a class="pagination next grey"><i class="fa fa-arrow-right"></i></a>'
     if GetUrl.objects.filter(id=get_previous_id).exists():
-        prev_page = '<a class="pagination active"><i class="fa fa-arrow-left"></i></a>'
+        prev_page = '<a href="?course=%s&page=%s" class="pagination active"><i class="fa fa-arrow-left"></i></a>' % (current_course, get_previous_id)
     else:
         prev_page = '<a class="pagination grey"><i class="fa fa-arrow-left"></i></a>'
 
@@ -30,6 +34,7 @@ def index(request):
         'prev_page': prev_page,
         'next_page': next_page,
         'current_ratio': ratio,
+        'current_user': request.user,
     }
 
     return render(request, 'get_class/index.html', context)
@@ -53,6 +58,11 @@ def vote_down(request):
      find_url.save()
      next_page = int(page) + 1
      return HttpResponseRedirect('/get_class/?course=%s&page=%s' % (current_course, next_page))
+
+def log_out(request):
+    logout(request)
+    return HttpResponseRedirect('/login/')
+
 
 
 
