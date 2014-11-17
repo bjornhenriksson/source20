@@ -9,7 +9,7 @@
     <div class="sidebar">
 
         <div class="top">
-            <span style="text-transform: capitalize;">{{ current_user }}</span>
+            <div class="user">{{ current_user }} <i class="fa fa-sort-desc"></i><div class="user-drop"><a href="">Settings</a><br /><a href="logout/">Log out</a></div></div><br /><br />
             <h2>{{ course.current_course }}</h2>
             <h1>{{ course.url_name }}</h1>
         </div>

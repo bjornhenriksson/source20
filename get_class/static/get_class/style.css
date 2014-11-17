@@ -27,7 +27,7 @@ body {
     background: #ff1b8c;
     display: inline-block;
     width: 90%;
-    padding: 15% 5% 5% 5%;
+    padding: 8% 5% 5% 5%;
 }
 
 .sidebar .top p {
@@ -82,6 +82,49 @@ body {
 
 .sidebar-footer a {
     color: white;
+}
+
+.user {
+    background: rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 0.4em;
+    display: inline-block;
+    font-size: 0.9em;
+    color: white;
+    text-transform: capitalize;
+    cursor: pointer;
+    position: relative;
+}
+
+.user i {
+    vertical-align: top;
+}
+
+.user-drop {
+    background: #27292a;
+    border-radius: 5px;
+    padding: 0.4em;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    display: none;
+}
+
+.user:hover > .user-drop {
+    display: block;
+}
+
+.user-drop a {
+    text-decoration: none;
+    color: #9fa3a4;
+    font-weight: 300;
+    font-size: 0.9em;
+    padding: 0.2em;
+}
+
+.user-drop a:hover {
+    color: #eee;
 }
 
 .capitalize {
