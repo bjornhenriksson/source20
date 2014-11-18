@@ -1,0 +1,19 @@
+{% extends "get_class/base.html" %}
+
+{% block content %}
+
+<div class="content">
+    {% if stats %}
+        <h3>Welcome back!</h3>
+        {% for stat in stats %}
+        <p>You never finished</p>
+        <h2>{{ stat.course_name }}</h2>
+        {{ stat.progress }}
+        {% endfor %}
+    {% else %}
+        Search a course below:
+        <input type="text" name="search" />
+    {% endif %}
+</div>
+
+{% endblock %}

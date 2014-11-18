@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% if course %}
+
     {% for url in urls %}
 
     <div class="sidebar">
@@ -46,5 +48,11 @@
 
     <iframe class="course" src="{{ url.url }}"></iframe>
     {% endfor %}
+
+{% endif %}
+    <h2>Welcome back!</h2>
+
+    <p>Pick up where you left of:</p>
+    
 
 {% endblock %}

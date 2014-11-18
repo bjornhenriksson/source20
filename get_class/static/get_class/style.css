@@ -5,11 +5,35 @@ html, body {
 }
 
 body {
-    background: black;
+    background: white;
     font-family: "proxima-nova";
     position: absolute;
     top: 0;
     left: 0;
+}
+
+p {
+    font-size: 1em;
+}
+
+.content {
+    background: #eee;
+    width: 100%;
+    min-height: 65%;
+    display: inline-block;
+    text-align: center;
+}
+
+.content h2 {
+    color: #ff1b8c;
+    text-transform: capitalize;
+    font-size: 2.5em;
+    margin-top: -0.4em;
+}
+
+.content h3 {
+    color: #666;
+    font-size: 1.6em;
 }
 
 .sidebar {
