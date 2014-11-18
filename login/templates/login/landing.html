@@ -4,11 +4,17 @@
 
 <div class="content">
     {% if stats %}
-        <h3>Welcome back!</h3>
         {% for stat in stats %}
         <p>You never finished</p>
         <h2>{{ stat.course_name }}</h2>
-        {{ stat.progress }}
+
+        <div class="progress">
+        <div class="progress-bar" style="background-position: -{% widthratio stat.progress 2 1 %}0% 0;"></div>
+        <p>{% widthratio stat.progress 2 1 %}0%</p>
+        </div>
+
+        <a href="/get_class/?course={{ stat.course_name }}&page={{ stat.progress }}" class="button">continue</a>
+
         {% endfor %}
     {% else %}
         Search a course below:

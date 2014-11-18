@@ -21,5 +21,5 @@ def trylogin(request):
 
 def tracker(request):
     user = request.user
-    p = Progress.objects.filter(user=user)
+    p = Progress.objects.filter(user=user)[:1]
     return render(request, 'login/landing.html', {"stats": p})
