@@ -2,57 +2,49 @@
 
 {% block content %}
 
-{% if get_url_list %}
-
-    {% for course in get_url_list %}
+    {% for url in urls %}
 
     <div class="sidebar">
 
         <div class="top">
             <div class="user">{{ current_user }} <i class="fa fa-sort-desc"></i><div class="user-drop"><a href="">Settings</a><br /><a href="logout/">Log out</a></div></div><br /><br />
-            <h2>{{ course.current_course }}</h2>
-            <h1>{{ course.url_name }}</h1>
+            <h2>{{ course }}</h2>
+            <h1>{{ url.url_name }}</h1>
         </div>
 
         <div class="contents">
 
-        <p class="description">You are viewing part {{ course.id }} out of 20 in <span class="capitalize">{{ course.current_course }}</span></p>
+        <p class="description">You are viewing part {{ urls.number }} out of 20 in <span class="capitalize">{{ course }}</span></p>
         <div class="pagination-nav">
-        {{ prev_page | safe }}{{ next_page | safe }}
+            {% if urls.has_previous %}
+                <a href="?course={{ course }}&page={{ urls.previous_page_number }}" class="pagination active"><i class="fa fa-arrow-left"></i></a>
+            {% else %}
+                <a class="pagination grey"><i class="fa fa-arrow-left"></i></a>
+            {% endif %}
+
+            {% if urls.has_next %}
+                <a class="pagination next active"><i class="fa fa-arrow-right"></i></a>
+            {% else %}
+                <a class="pagination next grey"><i class="fa fa-arrow-right"></i></a>
+            {% endif %}
         </div>
 
         <div class="sidebar-footer">
             <p>Copy this URL:</p>
-            <input type="text" class="copy-box" value="{{ course.url }}" readonly="readonly"><br /><br />
+            <input type="text" class="copy-box" value="{{ url.url }}" readonly="readonly"><br /><br />
         </div>
-        <!--
-        {% for geturl in current_ratio %}
-        <p>Current ratio: {{ geturl.votes}}</p><br />
-        {% endfor %}
-        -->
 
-        <div class="rate">
+        <div class="rate" style="display: block;">
         <p><span>Did you find this link useful?</span></p>
-        {% for geturl in current_ratio %}
-            <a href="{% url 'get_class:vote_down'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}" class="addvote red"><i class="fa fa-thumbs-down"></i></a>
-            <a href="{% url 'get_class:vote_up'  %}?page={{ geturl.id}}&course={{ geturl.current_course}}" class="addvote green"><i class="fa fa-thumbs-up"></i></a>
-        {% endfor %}
+            <a href="{% url 'get_class:vote_down'  %}?id={{ url.id }}&course={{ course }}&page={{ urls.number }}" class="addvote red"><i class="fa fa-thumbs-down"></i></a>
+            <a href="{% url 'get_class:vote_up'  %}?id={{ url.id }}&course={{ course }}&page={{ urls.number }}" class="addvote green"><i class="fa fa-thumbs-up"></i></a>
         </div>
 
         </div>
 
     </div>
 
-
-    <iframe class="course" src="{{ course.url }}"></iframe>
-
+    <iframe class="course" src="{{ url.url }}"></iframe>
     {% endfor %}
-
-{% else %}
-    <p>No courses available for that name</p>
-    <form action="" method="get">
-        <input type="text" name="course" placeholder="Search for another course"/>
-    </form>
-{% endif %}
 
 {% endblock %}
