@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     url(r'^$', views.redirect, name='redirect'),
     url(r'^login/', views.trylogin, name='trylogin'),
     url(r'^landing/', views.tracker, name='tracker'),
+    url(r'^register', views.register, name='register'),
 )

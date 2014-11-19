@@ -62,7 +62,6 @@ p {
 	left: 0;
 	bottom: 0.15em;
 	border-radius: 5px;
-
 }
 
 .login-box {
@@ -86,6 +85,37 @@ p {
     border: 1px solid #ff1b8c;
     color: #ff1b8c;
     outline: 0;
+}
+
+.form-text.green {
+    border: 1px solid #75e200;
+    color: #75e200;
+}
+
+.form-text.pink {
+    border: 1px solid #ff1b8c;
+    color: #ff1b8c;
+}
+
+.error {
+    width: 50%;
+    margin-top: -1.8em;
+    margin-left: 110%;
+    color: #aaa;
+    text-align: left;
+    font-weight: 300;
+}
+
+.error.green {
+    color: #75e200;
+}
+
+.error.pink {
+    color: #ff1b8c;
+}
+
+.error i {
+    margin-left: -0.65em;
 }
 
 .button {

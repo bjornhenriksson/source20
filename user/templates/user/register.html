@@ -1,0 +1,24 @@
+{% extends "get_class/base.html" %}
+
+{% block content %}
+
+<div class="content">
+
+    <div class="login-box">
+
+        {{ msg }}
+        <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" class="form-text {{ validate_email }}" placeholder="email" value="{{ save_email }}" name="email" />
+        {% if msg_email %}<div class="error {{ validate_email }}"><i class="fa fa-caret-left"></i> {{ msg_email }}</div><br />{% endif %}
+        <input type="text" class="form-text {{ validate_user }}" placeholder="username" value="{{ save_user }}" name="username" />
+        {% if msg_user %}<div class="error {{ validate_user }}"><i class="fa fa-caret-left"></i> {{ msg_user }}</div><br />{% endif %}
+        <input type="password" class="form-text" placeholder="password" name="password" /><br />
+        <input type="submit" class="button form" value="Register" />
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
