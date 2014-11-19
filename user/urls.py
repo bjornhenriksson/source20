@@ -1,8 +1,9 @@
 from django.conf.urls import patterns, url
 
-from login import views
+from user import views
 
 urlpatterns = patterns('',
-    url(r'^try/', views.trylogin, name='trylogin'),
+    url(r'^$', views.redirect, name='redirect'),
+    url(r'^login/', views.trylogin, name='trylogin'),
     url(r'^landing/', views.tracker, name='tracker'),
 )

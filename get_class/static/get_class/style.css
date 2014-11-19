@@ -65,6 +65,29 @@ p {
 
 }
 
+.login-box {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-text {
+    width: 90%;
+    font-size: 1.2em;
+    font-weight: 300;
+    color: #aaa;
+    border: 1px solid #aaa;
+    margin-top: 0.6em;
+    border-radius: 5px;
+    padding: 3% 5% 3% 5%;
+}
+
+.form-text:focus {
+    border: 1px solid #ff1b8c;
+    color: #ff1b8c;
+    outline: 0;
+}
+
 .button {
 	background: #ff1b8c;
 	color: white;
@@ -88,6 +111,39 @@ p {
 	-webkit-box-shadow:inset 0px -5em 0px 0px #de1c7c;
     -moz-box-shadow:inset 0px -5em 0px 0px #de1c7c;
     box-shadow:inset 0px -5em 0px 0px #de1c7c;
+}
+
+.button.form {
+    border: 0;
+    float: right;
+}
+
+.register {
+    background: none;
+    padding: 1.1em 1em 1.2em 1em;
+    font-size: 0.95em;
+	font-weight: 300;
+	display: inline-block;
+	margin-top: 2em;
+    float: left;
+    color: #aaa;
+}
+
+.register:hover {
+    color: #666;
+}
+
+
+.space-link {
+    color: #666;
+    text-decoration: none;
+    margin-right: 1em;
+    float: left;
+    display: inline-block;
+}
+
+.space-link:hover {
+    color: #000;
 }
 
 .sidebar {

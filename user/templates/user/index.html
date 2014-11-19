@@ -1,0 +1,23 @@
+{% extends "get_class/base.html" %}
+
+{% block content %}
+
+<div class="content">
+
+
+
+    <div class="login-box">
+        {{ error_msg }}
+
+        <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" class="form-text" placeholder="username" name="username" /><br />
+        <input type="password" class="form-text" placeholder="password" name="password" /><br />
+        <a href="/user/register/" class="register">new account</a><input type="submit" class="button form" value="Log in" />
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
